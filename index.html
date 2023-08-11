@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Play/Pause</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h2{
+            color: red;
+        }
+        button{
+            padding: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="contentWrapper" style="display: none;">
+        <h1 class="msg">it is not 92574 now , it is 80946 
+            <br>
+            this recording is of 3 august . 
+            but  he is in worst condition now and can or  will do anything now, that may be bad for both of you .
+        </h1>
+        <h2 class="msg">please help</h2>
+        <audio id="audioElement" src="jitesh.mp3"></audio>
+        <button id="playPauseButton">Play</button>
+    </div>
+
+    <script>
+        let password = prompt('Enter your password');
+
+        const contentWrapper = document.getElementById('contentWrapper');
+        const audio = document.getElementById('audioElement');
+        const playPauseButton = document.getElementById('playPauseButton');
+
+        if (password === 'sumit') {
+            contentWrapper.style.display = 'block';
+
+            playPauseButton.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseButton.textContent = 'Pause';
+                } else {
+                    audio.pause();
+                    playPauseButton.textContent = 'Play';
+                }
+            });
+        } else {
+            alert('enter privacy password');
+        }
+    </script>
+</body>
+</html>
